@@ -6,10 +6,10 @@ import torch
 import torch.nn as nn
 import pandas as pd
 
-from layers2 import AD_MVC
+from layers import AD_MVC
 from loss import EvidentialLoss, DeepMVCLoss
-from dataprocessing1 import MultiviewData, get_multiview_data
-from models1 import pre_train, hybrid_edl_train, valid
+from dataprocessing import MultiviewData, get_multiview_data
+from models import pre_train, hybrid_edl_train, valid
 from torch.optim import AdamW
 
 warnings.filterwarnings("ignore")
@@ -216,7 +216,7 @@ if __name__ == "__main__":
     print("==> Training finished, final validating ...")
     acc, nmi, pur, ari = valid(model, mv_eval, args.batch_size)
 
-    with open(f'result_{args.db}_EDL.txt', 'a+') as f:
+    with open(f'result_{args.db}.txt', 'a+') as f:
         f.write(
             '{} \t {} \t {} \t {:.6f} \t {:.6f} \t {:.6f} \t {:.6f} \t  {:.6f} \t {:.4f} \n'.format(
                 args.seed, args.batch_size, args.lr, lambda_max,
