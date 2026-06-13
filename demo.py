@@ -112,7 +112,7 @@ def auto_select_anchor_by_capacity(model, mv_data, batch_size):
 
 
 
-# ---------------- 数据集特定超参 ----------------
+# ---------------- 数据集 ----------------
 if __name__ == "__main__":
     if args.db == "MSRCv1":
         args.lr = 0.0001
